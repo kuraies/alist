@@ -28,6 +28,10 @@ jobs:
         run: |
           bash build.sh release android
 
+      - name: Check build output
+        run: ls -la build/compress/    
+      
+
       - name: Upload assets
         uses: softprops/action-gh-release@v2.0.4
         with:
