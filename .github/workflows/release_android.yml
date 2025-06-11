@@ -3,6 +3,9 @@ name: release_android
 on:
   release:
     types: [ published ]
+    
+permissions:
+  contents: write
 
 jobs:
   release_android:
@@ -13,6 +16,9 @@ jobs:
     name: Release
     runs-on: ${{ matrix.platform }}
     steps:
+
+      - name: Debug token scope
+        run: curl -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" https://api.github.com/rate_limit
 
       - name: Setup Go
         uses: actions/setup-go@v5
