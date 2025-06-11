@@ -17,9 +17,6 @@ jobs:
     runs-on: ${{ matrix.platform }}
     steps:
 
-      - name: Debug token scope
-        run: curl -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" https://api.github.com/rate_limit
-
       - name: Setup Go
         uses: actions/setup-go@v5
         with:
