@@ -4,6 +4,9 @@ on:
   release:
     types: [ published ]
 
+permissions:
+  contents: write
+
 jobs:
   release_freebsd:
     strategy:
@@ -29,6 +32,7 @@ jobs:
           bash build.sh release freebsd
 
       - name: Upload assets
-        uses: softprops/action-gh-release@v2
+        uses: softprops/action-gh-release@v2.0.4
         with:
           files: build/compress/*
+
